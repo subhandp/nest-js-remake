@@ -1,9 +1,10 @@
 // src/config/config.service.ts
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
+import { Auth } from 'src/domain/auth.domain'
 
 require('dotenv').config();
 
-class ConfigService {
+class DatabaseConfigService {
 
   constructor(private env: { [k: string]: string | undefined }) { }
 
@@ -39,9 +40,8 @@ class ConfigService {
       username: this.getValue('DATABASE_USER'),
       password: this.getValue('DATABASE_PASSWORD'),
       database: this.getValue('DATABASE_NAME'),
-
       // domain as entity
-      entities: ['**/*.domain{.ts,.js}'],
+      entities: [Auth],
 
       migrationsTableName: 'typeorm_migrations',
 
@@ -57,7 +57,7 @@ class ConfigService {
 
 }
 
-const configService = new ConfigService(process.env)
+const databaseConfigService = new DatabaseConfigService(process.env)
   .ensureValues([
     'DATABASE_HOST',
     'DATABASE_PORT',
@@ -66,4 +66,4 @@ const configService = new ConfigService(process.env)
     'DATABASE_NAME'
   ]);
 
-export { configService };
+export { databaseConfigService };
