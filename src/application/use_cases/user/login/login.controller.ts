@@ -1,5 +1,5 @@
 import { Body, Controller, Inject, Post } from '@nestjs/common';
-import { UserRepository } from 'src/infranstructure/persistence/repository/user.repository'
+import { UserRepository } from 'src/infrastructure/persistence/repository/user.repository'
 import { LoginRequest } from 'src/application/use_cases/user/login/login.request'
 import { LoginRequestMapper } from 'src/application/use_cases/user/login/login.request'
 
