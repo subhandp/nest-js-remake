@@ -1,6 +1,9 @@
-import { Users } from '../../../domain/users.domain'
+import { Address } from '../../../domain/address.domain'
 
-export interface UserRepositoryInterface {
-    update(id: number): Users
-    getById(id: number): Users
+export interface UpdateRepositoryInterface {
+    update(id: number): Address
+    findById(id: number): Address
+    findAll(): Address
+    create(): Address
+    delete(id: number) : string
 }

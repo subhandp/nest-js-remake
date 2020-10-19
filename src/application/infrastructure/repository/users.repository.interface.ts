@@ -1,6 +1,7 @@
 import { Users } from '../../../domain/users.domain'
 
 export interface UserRepositoryInterface {
-    update(id: number): Users
-    getById(id: number): Users
+    update(id: number, user : Users): Users
+    findById(id: number): Users
+    findAll(): Promise<Users[]>
 }

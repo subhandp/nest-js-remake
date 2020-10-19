@@ -1,6 +1,10 @@
 // src/config/config.service.ts
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { Auth } from 'src/domain/auth.domain'
+import { Users } from 'src/domain/users.domain'
+import { Address } from 'src/domain/address.domain'
+
+
 
 require('dotenv').config();
 
@@ -41,12 +45,11 @@ class DatabaseConfigService {
       password: this.getValue('DATABASE_PASSWORD'),
       database: this.getValue('DATABASE_NAME'),
       // domain as entity
-      entities: [Auth],
+      entities: [Auth, Users, Address],
 
       migrationsTableName: 'typeorm_migrations',
 
       migrations: ['src/migration/*.ts'],
-
       cli: {
         migrationsDir: 'src/infrastructure/persistence/migration',
       },
