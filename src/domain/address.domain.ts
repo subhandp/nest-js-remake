@@ -5,13 +5,7 @@ import { Users} from './users.domain'
 @Entity()
 export class Address{
   @PrimaryGeneratedColumn()
-  id: number;
-
-  @Column()
-  adminId: number;
-
-  @Column()
-  userId: number;
+  id?: number;
 
   @Column()
   addressName: string;
@@ -26,6 +20,6 @@ export class Address{
   address: string;
 
   @ManyToOne(() => Users, user => user.address)
-  user : Users
+  user?:  Users
 
 }

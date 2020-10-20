@@ -44,9 +44,8 @@ class DatabaseConfigService {
       username: this.getValue('DATABASE_USER'),
       password: this.getValue('DATABASE_PASSWORD'),
       database: this.getValue('DATABASE_NAME'),
-      // domain as entity
       entities: [Auth, Users, Address],
-
+      synchronize: true,
       migrationsTableName: 'typeorm_migrations',
 
       migrations: ['src/migration/*.ts'],
