@@ -9,7 +9,7 @@ export class CreateController {
     constructor(private readonly adressRepository: AddressRepository) {}
 
     @Post('/')
-    create(@Body() createRequest: CreateRequest): Promise<string> {
+    create(@Body() createRequest: CreateRequest): Promise<Address> {
         return this.adressRepository.create(CreateRequestMapper(createRequest));
     }
 }

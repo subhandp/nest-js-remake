@@ -9,8 +9,8 @@ export class AddressRepository implements AddressRepositoryInterface {
 
     // constructor(@InjectRepository(Address) private readonly addressEntityRepository: Repository<Address>) {}
 
-    async create(address : Address): Promise<string> {
-        // const addressENtity: Address =  await this.addressEntityRepository.save(address);
+    async create(address : Address): Promise<Address> {
+        // const addressEntity: Address =  await this.addressEntityRepository.save(address);
         
         await getRepository(Address)
         .createQueryBuilder()
@@ -19,7 +19,7 @@ export class AddressRepository implements AddressRepositoryInterface {
         .values(address)
         .execute()
 
-        return 'success create address'
+        return address
     }
 
 
